@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://drlr6vwfkyip6"]
+
+[ext_resource type="Material" uid="uid://dew65gnedj0jm" path="res://_src/assets/greybox/greybox.tres" id="1_55n2g"]
+[ext_resource type="PackedScene" uid="uid://b3vntfkvmqyn2" path="res://_src/environment/rock_boulder.tscn" id="2_yll5b"]
+[ext_resource type="PackedScene" uid="uid://5wqqa6cb2cwm" path="res://_src/environment/rock_cliff.tscn" id="3_hpfcj"]
+[ext_resource type="PackedScene" uid="uid://b4xabkbf2hrp6" path="res://_src/assets/environment/rock_cliff.glb" id="4_j3vr5"]
+[ext_resource type="PackedScene" uid="uid://dkqwm233fcmd8" path="res://_src/assets/environment/rock_pillar.glb" id="4_t0kgb"]
+[ext_resource type="Texture2D" uid="uid://0q88y2noe3m" path="res://_src/assets/environment/desert_sand_big_d.jpg" id="6_ksu15"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yll5b"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_hpfcj"]
+sky_material = SubResource("ProceduralSkyMaterial_yll5b")
+
+[sub_resource type="Environment" id="Environment_t0kgb"]
+background_mode = 2
+sky = SubResource("Sky_hpfcj")
+tonemap_mode = 3
+glow_enabled = true
+fog_density = 0.019
+fog_sky_affect = 0.876
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuxjn"]
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("6_ksu15")
+metallic_specular = 0.25
+uv1_scale = Vector3(0.115, 0.115, 0.115)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="Main" type="Node3D" unique_id=774552377]
+
+[node name="Lighting" type="Node" parent="." unique_id=750330832]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting" unique_id=1553230568]
+environment = SubResource("Environment_t0kgb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=1793008284]
+transform = Transform3D(0.7883385, 0.5735964, -0.22250786, 0.5899314, -0.6020734, 0.53804153, 0.17465268, -0.55542314, -0.8130201, 0, 3.220498, 0)
+shadow_enabled = true
+
+[node name="Geo" type="Node" parent="." unique_id=1950239599]
+
+[node name="rock_boulder" parent="Geo" unique_id=895366536 instance=ExtResource("2_yll5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5159224, 2.3841858e-07, -4.798021)
+
+[node name="rock_cliff" parent="Geo" unique_id=1963253833 instance=ExtResource("3_hpfcj")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 7.902668, -0.7470665, 1.0940661)
+
+[node name="rock_pillar" parent="Geo" unique_id=1645786754 instance=ExtResource("4_t0kgb")]
+transform = Transform3D(0.23500003, 0, 0, 0, 0.11418128, 0.20539626, 0, -0.20539626, 0.11418128, -1.9407778, -0.26635766, 4.243353)
+
+[node name="rock_cliff2" parent="Geo" unique_id=2008820445 instance=ExtResource("4_j3vr5")]
+transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, -9.965153, -0.3686037, 8.237553)
+
+[node name="csg" type="Node" parent="Geo" unique_id=436470511]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geo/csg" unique_id=28478630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008278906, -0.09622145, 0.011558771)
+material_override = ExtResource("1_55n2g")
+use_collision = true
+size = Vector3(25, 0.25, 25)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geo/csg/CSGBox3D" unique_id=1173766209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.866211, -2.2498016, -7.3341675)
+size = Vector3(10, 4.65, 9)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Geo/csg/CSGBox3D" unique_id=1715437964]
+operation = 2
+
+[node name="CSGBox3D_cutter" type="CSGBox3D" parent="Geo/csg/CSGBox3D/CSGCombiner3D" unique_id=469610527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9835253, -1.7621112, -7.4890795)
+size = Vector3(9.745371, 5, 8.670176)
+
+[node name="SandCSGBox3D" type="CSGBox3D" parent="Geo/csg" unique_id=1191505577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.081419, -0.14467591, -6.5820704)
+size = Vector3(11.677, 0.25, 11.247)
+material = SubResource("StandardMaterial3D_tuxjn")
