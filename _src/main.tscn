@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkqwm233fcmd8" path="res://_src/assets/environment/rock_pillar.glb" id="4_t0kgb"]
 [ext_resource type="Texture2D" uid="uid://0q88y2noe3m" path="res://_src/assets/environment/desert_sand_big_d.jpg" id="6_ksu15"]
 [ext_resource type="PackedScene" uid="uid://bbltchipt0swl" path="res://_src/environment/crate.tscn" id="7_ksu15"]
+[ext_resource type="PackedScene" uid="uid://dmk13wpv4e3ec" path="res://_src/characters/player/player.tscn" id="8_tuxjn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yll5b"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -82,3 +83,6 @@ material = SubResource("StandardMaterial3D_tuxjn")
 
 [node name="Crate2" parent="Geo" unique_id=533227202 instance=ExtResource("7_ksu15")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -8.57398, 0.028779984, 0.37039995)
+
+[node name="Player" parent="." unique_id=1889686106 instance=ExtResource("8_tuxjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0709028, 0, 7.5556755)

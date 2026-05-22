@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dmk13wpv4e3ec"]
+
+[ext_resource type="Script" uid="uid://716uj6oe7nii" path="res://_src/characters/player/player.gd" id="1_hwr8b"]
+[ext_resource type="PackedScene" uid="uid://bhtw33teugihg" path="res://_src/characters/character_mover.tscn" id="2_ophsj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eo45w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hwr8b"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1889686106 node_paths=PackedStringArray("camera_3d", "character_mover")]
+script = ExtResource("1_hwr8b")
+camera_3d = NodePath("Camera3D")
+character_mover = NodePath("CharacterMover")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=447521428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_eo45w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1390232213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_hwr8b")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1807646091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CharacterMover" parent="." unique_id=691765516 instance=ExtResource("2_ophsj")]
