@@ -37,11 +37,11 @@ func _physics_process(delta: float) -> void:
 	
 
 	if Input.is_action_just_pressed("jump"):
-		character_mover.jump()
+		character_mover._jump()
 		
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
 	var move_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	character_mover.set_move_dir(move_dir)
+	character_mover._set_move_dir(move_dir)
 	

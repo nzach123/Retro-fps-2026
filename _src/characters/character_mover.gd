@@ -1,42 +1,51 @@
 extends Node3D
 
+@export var max_speed: float = 7.0
+@export var jump_velocity: float = 5.0
+@export var ground_accel: float = 10.0
+@export var air_accel: float = 1.5
+@export var ground_friction: float = 8.0
 
-@export var max_speed = 5.0
-@export var jump_velocity = 4.5
-@export var move_accel = 4.0
-@export var stop_drag = 0.9
+var character_body: CharacterBody3D
+var move_dir: Vector3
 
-var character_body = CharacterBody3D
-var move_drag = 0.0
-var move_dir : Vector3
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	character_body = get_parent()
-	move_drag = float(move_accel) / max_speed
 
-func set_move_dir(new_move_dir: Vector3):
-	move_dir = new_move_dir
-	
-func jump() -> void:
-	if character_body.is_on_floor():
-		character_body.velocity.y = jump_velocity
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	var drag = move_drag
-	
 	if not character_body.is_on_floor():
 		character_body.velocity += character_body.get_gravity() * delta
-	if move_dir:
-		character_body.velocity.x = move_dir.x * max_speed
-		character_body.velocity.z = move_dir.z * max_speed
-
+		_accelerate(move_dir, air_accel, delta)
 	else:
-		character_body.velocity.x = move_toward(character_body.velocity.x, 0, max_speed)
-		character_body.velocity.z = move_toward(character_body.velocity.z, 0, max_speed)	
-
+		_apply_friction(delta)
+		_accelerate(move_dir, ground_accel, delta)
 
 	character_body.move_and_slide()
+	
+func _set_move_dir(new_move_dir: Vector3) -> void:
+	move_dir = new_move_dir
+
+func _jump() -> void:
+	if character_body.is_on_floor():
+		character_body.velocity.y = jump_velocity
+		
+func _accelerate(wish_dir: Vector3, accel: float, delta: float) -> void:
+	var current_speed := character_body.velocity.dot(wish_dir)
+	var add_speed := max_speed - current_speed
+	if add_speed <= 0.0:
+		return
+	var accel_speed = min(accel * max_speed * delta, add_speed)
+	character_body.velocity.x += wish_dir.x * accel_speed
+	character_body.velocity.z += wish_dir.z * accel_speed
+
+func _apply_friction(delta: float) -> void:
+	var horizontal := Vector2(character_body.velocity.x, character_body.velocity.z)
+	var speed := horizontal.length()
+	if speed < 0.001:
+		character_body.velocity.x = 0.0
+		character_body.velocity.z = 0.0
+		return
+	var drop = speed * ground_friction * delta
+	var scale = max(speed - drop, 0.0) / speed
+	character_body.velocity.x *= scale
+	character_body.velocity.z *= scale
