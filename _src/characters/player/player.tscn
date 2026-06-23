@@ -8,10 +8,11 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hwr8b"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1889686106 node_paths=PackedStringArray("camera_3d", "character_mover")]
+[node name="Player" type="CharacterBody3D" unique_id=1889686106 node_paths=PackedStringArray("camera_3d", "character_mover", "health_manager")]
 script = ExtResource("1_hwr8b")
 camera_3d = NodePath("Camera3D")
 character_mover = NodePath("CharacterMover")
+health_manager = NodePath("HealthManager")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=447521428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -27,3 +28,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="CharacterMover" parent="." unique_id=691765516 instance=ExtResource("2_ophsj")]
 
 [node name="HealthManager" parent="." unique_id=302101520 instance=ExtResource("3_uly52")]
+verbose = true
+
+[node name="Timer" type="Timer" parent="HealthManager" unique_id=2084207356]
+wait_time = 2.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="HealthManager" unique_id=632358438]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="HealthManager/Timer" to="HealthManager" method="test_damage"]
+[connection signal="timeout" from="HealthManager/Timer2" to="HealthManager" method="heal" binds= [10]]

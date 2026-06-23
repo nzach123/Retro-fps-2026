@@ -16,7 +16,7 @@ signal health_changed(cur_health, max_health)
 func _ready() -> void:
 	health_changed.emit(cur_health, max_health)
 	if verbose:
-		print("starting_health: %s%s" % [cur_health, max_health])
+		print("starting_health: %s/%s" % [cur_health, max_health])
 
 func hurt(damage_data = DamageData):
 	if cur_health < 0:
@@ -45,3 +45,8 @@ func heal(amount: int):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func test_damage():
+	var d = DamageData.new()
+	d.amount = 30
+	hurt(d)
