@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://716uj6oe7nii" path="res://_src/characters/player/player.gd" id="1_hwr8b"]
 [ext_resource type="PackedScene" uid="uid://bhtw33teugihg" path="res://_src/characters/character_mover.tscn" id="2_ophsj"]
+[ext_resource type="PackedScene" uid="uid://diqfpwsimplnh" path="res://_src/characters/health_manager.tscn" id="3_uly52"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_eo45w"]
 
@@ -24,3 +25,5 @@ shape = SubResource("CapsuleShape3D_hwr8b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="CharacterMover" parent="." unique_id=691765516 instance=ExtResource("2_ophsj")]
+
+[node name="HealthManager" parent="." unique_id=302101520 instance=ExtResource("3_uly52")]
