@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://0q88y2noe3m" path="res://_src/assets/environment/desert_sand_big_d.jpg" id="6_ksu15"]
 [ext_resource type="PackedScene" uid="uid://bbltchipt0swl" path="res://_src/environment/crate.tscn" id="7_ksu15"]
 [ext_resource type="PackedScene" uid="uid://dmk13wpv4e3ec" path="res://_src/characters/player/player.tscn" id="8_tuxjn"]
+[ext_resource type="PackedScene" uid="uid://bnlw021ch3xii" path="res://_src/assets/weapons/Machete_v1.glb" id="9_03c1i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yll5b"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -86,3 +87,6 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -8.57398, 0.028779984, 
 
 [node name="Player" parent="." unique_id=1889686106 instance=ExtResource("8_tuxjn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0709028, 0, 7.5556755)
+
+[node name="Machete_v1" parent="." unique_id=978098110 instance=ExtResource("9_03c1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2925696, 0.36270836, 5.630662)
