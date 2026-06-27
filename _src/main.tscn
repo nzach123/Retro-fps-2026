@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bbltchipt0swl" path="res://_src/environment/crate.tscn" id="7_ksu15"]
 [ext_resource type="PackedScene" uid="uid://dmk13wpv4e3ec" path="res://_src/characters/player/player.tscn" id="8_tuxjn"]
 [ext_resource type="PackedScene" uid="uid://bnlw021ch3xii" path="res://_src/assets/weapons/Machete_v1.glb" id="9_03c1i"]
+[ext_resource type="PackedScene" uid="uid://c4htiyvqn57a5" path="res://_src/assets/weapons/Test/Shotgun_v1.glb" id="10_fklou"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yll5b"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -90,3 +91,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0709028, 0, 7.5556755)
 
 [node name="Machete_v1" parent="." unique_id=978098110 instance=ExtResource("9_03c1i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2925696, 0.36270836, 5.630662)
+
+[node name="Shotgun_v1" parent="." unique_id=2008365695 instance=ExtResource("10_fklou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7736883, 0.26256764, 5.518797)
