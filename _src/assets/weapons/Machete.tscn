@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://e7lw3awjmghk"]
+
+[ext_resource type="PackedScene" uid="uid://bnlw021ch3xii" path="res://_src/assets/weapons/Test/Machete_v1.glb" id="1_ykcur"]
+
+[node name="Machete_v1" unique_id=1277754692 instance=ExtResource("1_ykcur")]

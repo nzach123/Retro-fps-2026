@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bhjv0f56dsfio"]
+
+[ext_resource type="PackedScene" uid="uid://c4htiyvqn57a5" path="res://_src/assets/weapons/Test/Shotgun_v1.glb" id="1_sxe1n"]
+
+[node name="Shotgun_v1" unique_id=876061114 instance=ExtResource("1_sxe1n")]

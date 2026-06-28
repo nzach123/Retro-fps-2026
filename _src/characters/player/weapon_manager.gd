@@ -9,7 +9,7 @@ var cur_weapon: Object = null
 func _ready() -> void:
 	disable_all_weapons()
 	for i in range(weapons.size()):
-		weapons_unlocked.append(false)
+		weapons_unlocked.append(true)
 		#weapons_unlocked.append(i == 0 or i == 2)
 		
 	#Start with starting weapon

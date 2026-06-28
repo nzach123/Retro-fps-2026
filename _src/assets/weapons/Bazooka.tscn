@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b0b6wqu8a2y8t"]
+
+[ext_resource type="PackedScene" uid="uid://b202xg0vdfsir" path="res://_src/assets/weapons/Test/Bazooka_v1.glb" id="1_u3snr"]
+
+[node name="Bazooka_v1" unique_id=1889916647 instance=ExtResource("1_u3snr")]

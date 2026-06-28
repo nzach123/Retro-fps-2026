@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bb2c63ggm5m64"]
+
+[ext_resource type="Texture2D" uid="uid://co0mbvmk7v3aa" path="res://_src/assets/weapons/Test/Shotgun_v1_shinymetal.png" id="1_aukc5"]
+
+[resource]
+albedo_texture = ExtResource("1_aukc5")
+metallic = 1.0

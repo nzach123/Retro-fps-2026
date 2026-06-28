@@ -3,27 +3,15 @@
 [ext_resource type="Script" uid="uid://716uj6oe7nii" path="res://_src/characters/player/player.gd" id="1_hwr8b"]
 [ext_resource type="PackedScene" uid="uid://bhtw33teugihg" path="res://_src/characters/character_mover.tscn" id="2_ophsj"]
 [ext_resource type="Script" uid="uid://bx5jv8tskagrt" path="res://_src/characters/player/weapon_manager.gd" id="2_qlhbo"]
+[ext_resource type="PackedScene" uid="uid://bjdjhbwg4r8b7" path="res://_src/assets/weapons/MachineGun.tscn" id="3_d3r8s"]
+[ext_resource type="PackedScene" uid="uid://e7lw3awjmghk" path="res://_src/assets/weapons/Machete.tscn" id="3_dggd2"]
 [ext_resource type="PackedScene" uid="uid://diqfpwsimplnh" path="res://_src/characters/health_manager.tscn" id="3_uly52"]
+[ext_resource type="PackedScene" uid="uid://bhjv0f56dsfio" path="res://_src/assets/weapons/Shotgun.tscn" id="4_l5krn"]
+[ext_resource type="PackedScene" uid="uid://b0b6wqu8a2y8t" path="res://_src/assets/weapons/Bazooka.tscn" id="6_oif7s"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_eo45w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hwr8b"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_d3r8s"]
-size = Vector3(0.25, 0.25, 0.25)
-
-[sub_resource type="SphereMesh" id="SphereMesh_ceecy"]
-radius = 0.25
-height = 0.5
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_436po"]
-top_radius = 0.25
-bottom_radius = 0.25
-height = 1.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dggd2"]
-radius = 0.25
-height = 1.0
 
 [node name="Player" type="CharacterBody3D" unique_id=1889686106 node_paths=PackedStringArray("camera_3d", "character_mover", "health_manager")]
 script = ExtResource("1_hwr8b")
@@ -47,21 +35,21 @@ script = ExtResource("2_qlhbo")
 
 [node name="Weapons" type="Node3D" parent="Camera3D/WeaponManager" unique_id=1363789014]
 
-[node name="Machete" type="MeshInstance3D" parent="Camera3D/WeaponManager/Weapons" unique_id=613221757]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501509, -0.26793432, -0.7258568)
-mesh = SubResource("BoxMesh_d3r8s")
+[node name="Machete_v1" parent="Camera3D/WeaponManager/Weapons" unique_id=1277754692 instance=ExtResource("3_dggd2")]
+transform = Transform3D(-0.63349974, 0, -5.5382305e-08, 0, 0.63349974, 0, 5.5382305e-08, 0, -0.63349974, 0.5593424, -0.7791177, -1.0816787)
+visible = false
 
-[node name="MachineGun" type="MeshInstance3D" parent="Camera3D/WeaponManager/Weapons" unique_id=1788171251]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501509, -0.26793432, -0.7258568)
-mesh = SubResource("SphereMesh_ceecy")
+[node name="Shotgun_v1" parent="Camera3D/WeaponManager/Weapons" unique_id=876061114 instance=ExtResource("4_l5krn")]
+transform = Transform3D(0.6029593, 0, 0, 0, 0.6029593, 0, 0, 0, 0.6029593, 0.3403716, -0.31547856, -0.30982518)
+visible = false
 
-[node name="Shotgun" type="MeshInstance3D" parent="Camera3D/WeaponManager/Weapons" unique_id=278800124]
-transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, 1, 0, -1, 2.9802322e-08, 0.501509, -0.26793432, -0.7258568)
-mesh = SubResource("CylinderMesh_436po")
+[node name="MachineGun_v1" parent="Camera3D/WeaponManager/Weapons" unique_id=70770679 instance=ExtResource("3_d3r8s")]
+transform = Transform3D(0.47341603, 0, 0, 0, 0.47341603, 0, 0, 0, 0.47341603, 0.36355937, -0.3412844, -0.3393407)
+visible = false
 
-[node name="RocketLauncher" type="MeshInstance3D" parent="Camera3D/WeaponManager/Weapons" unique_id=756379920]
-transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, 1, 0, -1, 2.9802322e-08, 0.501509, -0.26793432, -0.7258568)
-mesh = SubResource("CapsuleMesh_dggd2")
+[node name="Bazooka_v1" parent="Camera3D/WeaponManager/Weapons" unique_id=1889916647 instance=ExtResource("6_oif7s")]
+transform = Transform3D(-0.48135138, 0, -4.2081073e-08, 0, 0.48135138, 0, 4.2081073e-08, 0, -0.48135138, 0.53815186, -0.47275925, -0.94602245)
+visible = false
 
 [node name="CharacterMover" parent="." unique_id=691765516 instance=ExtResource("2_ophsj")]
 

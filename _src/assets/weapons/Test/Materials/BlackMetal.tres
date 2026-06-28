@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cumgnarrfpmu0"]
+
+[ext_resource type="Texture2D" uid="uid://c5bgj44oklwmb" path="res://_src/assets/weapons/Test/Shotgun_v1_blackmetal.png" id="1_reck2"]
+
+[resource]
+albedo_texture = ExtResource("1_reck2")
