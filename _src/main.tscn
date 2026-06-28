@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b4xabkbf2hrp6" path="res://_src/assets/environment/rock_cliff.glb" id="4_j3vr5"]
 [ext_resource type="PackedScene" uid="uid://dkqwm233fcmd8" path="res://_src/assets/environment/rock_pillar.glb" id="4_t0kgb"]
 [ext_resource type="Texture2D" uid="uid://0q88y2noe3m" path="res://_src/assets/environment/desert_sand_big_d.jpg" id="6_ksu15"]
-[ext_resource type="PackedScene" uid="uid://bbltchipt0swl" path="res://_src/environment/crate.tscn" id="7_ksu15"]
 [ext_resource type="PackedScene" uid="uid://dmk13wpv4e3ec" path="res://_src/characters/player/player.tscn" id="8_tuxjn"]
 [ext_resource type="PackedScene" uid="uid://bnlw021ch3xii" path="res://_src/assets/weapons/Machete_v1.glb" id="9_03c1i"]
 [ext_resource type="PackedScene" uid="uid://c4htiyvqn57a5" path="res://_src/assets/weapons/Test/Shotgun_v1.glb" id="10_fklou"]
+[ext_resource type="PackedScene" uid="uid://b202xg0vdfsir" path="res://_src/assets/weapons/Test/Bazooka_v1.glb" id="11_nof27"]
+[ext_resource type="PackedScene" uid="uid://26rmljj8tuoe" path="res://_src/assets/weapons/Test/MachineGun_v1.glb" id="11_o7bnu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yll5b"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -62,7 +63,7 @@ transform = Transform3D(0.165, 0, 0, 0, 0.165, 0, 0, 0, 0.165, -9.965153, -0.368
 [node name="csg" type="Node" parent="Geo" unique_id=436470511]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geo/csg" unique_id=28478630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008278906, -0.09622145, 0.011558771)
+transform = Transform3D(0.99999917, -0.0011984857, 0.0005298856, 0.0011981376, 0.99999905, 0.00065776106, -0.0005306721, -0.0006571267, 0.99999964, -0.008278906, -0.09622145, 0.011558771)
 material_override = ExtResource("1_55n2g")
 use_collision = true
 size = Vector3(25, 0.25, 25)
@@ -83,14 +84,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.081419, -0.14467591, -6.582
 size = Vector3(11.677, 0.25, 11.247)
 material = SubResource("StandardMaterial3D_tuxjn")
 
-[node name="Crate2" parent="Geo" unique_id=533227202 instance=ExtResource("7_ksu15")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -8.57398, 0.028779984, 0.37039995)
-
 [node name="Player" parent="." unique_id=1889686106 instance=ExtResource("8_tuxjn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0709028, 0, 7.5556755)
 
 [node name="Machete_v1" parent="." unique_id=978098110 instance=ExtResource("9_03c1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2925696, 0.36270836, 5.630662)
+transform = Transform3D(0.49853316, 0, 0.86687064, 0, 1, 0, -0.86687064, 0, 0.49853316, -3.861875, 1.1332393, 5.630662)
 
 [node name="Shotgun_v1" parent="." unique_id=2008365695 instance=ExtResource("10_fklou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7736883, 0.26256764, 5.518797)
+transform = Transform3D(0.9563405, 0, 0.29225487, 0, 1, 0, -0.29225487, 0, 0.9563405, -4.8075514, 1.6094928, 5.518797)
+
+[node name="MachineGun_v1" parent="." unique_id=1256449049 instance=ExtResource("11_o7bnu")]
+transform = Transform3D(0.87006956, -0.016375184, 0.49265704, -0.004220118, 0.999164, 0.04066378, -0.49291086, -0.03745939, 0.86927307, -2.1508093, 1.5971315, 5.618966)
+
+[node name="Bazooka_v1" parent="." unique_id=3263051 instance=ExtResource("11_nof27")]
+transform = Transform3D(-0.87879217, 0, -0.47720474, 0, 1, 0, 0.47720474, 0, -0.87879217, -6.6871214, 1.527978, 5.9883165)
